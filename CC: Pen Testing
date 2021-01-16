@@ -35,4 +35,5 @@ PrivEsc
 sudo -l
 Check the users sudo privileges.
 
-The rest is up to you ;)
+and from here we get the first flag.
+
