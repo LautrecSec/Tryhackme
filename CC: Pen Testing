@@ -19,14 +19,12 @@ Hmm nothing, lets check for files with .txt extensions.
 
 Read the contents of secret.txt with a browser or cURL, and use the credentials to connect to ssh.
 
-
 Hashed?
 HashID
 Run the hash through hashid to see what kind of hash it is. Use the -m flag to see the correlating hashcat mode
 
 Hashcat
 hashid thinks it is most likely a SHA1 hash. Crack the hash with hashcat using the mode provided by hashid.
-
 
 Ssh
 Connect with the cracked credentials and you’ll find the user flag in nyan’s home directory.
@@ -36,4 +34,36 @@ sudo -l
 Check the users sudo privileges.
 
 and from here we get the first flag.
+
+Next is just a bunch of tools intro to tools like Nikto, metasploit,nc, hashcat, john
+
+Task 5 Web Enumeration:
+
+#1 How do you specify which host to use? 
+ANSWER: -h
+
+#2 What flag disables ssl?
+ANSWER: -nossl
+
+#3 How do you force ssl?
+ANSWER: -ssl
+
+#4 How do you specify authentication(username + pass)?
+ANSWER: -id
+
+#5 How do you select which plugin to use?
+ANSWER: -plugins
+
+#6 Which plugin checks if you can enumerate apache users? 
+You have to run this command:
+
+1
+nikto --list-plugins
+Then you can show the answer:
+
+ANSWER: apacheuser
+
+Done, now onto the metasploit part
+
+
 
