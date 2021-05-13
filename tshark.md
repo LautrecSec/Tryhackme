@@ -1,6 +1,4 @@
 TRYHACKME TSHARK
-May 5, 2021 rapsca11ion Forensics, THM Leave a comment
-Today’s post is a walkthrough of the TShark walkthrough on TryHackMe.
 
 Before jumping in, a quick note: TShark is a tool that helps you perform network analysis, packet captures, etc., which is usually done through Wireshark. Due to this, if you are unfamiliar with Wireshark, do the Wireshark room first before proceeding to this room.
 
@@ -75,14 +73,11 @@ Continuing on, we can pair the -r flag with | wc -l to see how many packets are 
 
 ┌──(kali㉿kali)-[~/THM/tshark]
 └─$ tshark -r cap | wc -l                                         
-[redacted]
                         
 Usually, though, you are going to be working with pcap files that are hundreds, thousands, tens of thousands, or even larger amount of lines. This is where the next command comes in, which allows you to use Wireshark’s filters to list only the packets you want to see. You use the -Y switch to add filters.
 
 Using the same examples as the page walkthrough, to see only DNS A packets, you use dns.qry.type == 1, like so:
 
-1
-2
 ┌──(kali㉿kali)-[~/THM/tshark]
 └─$ tshark -r cap -Y "dns.qry.type == 1"                         
 As the walkthrough says, “[t]he power of TShark comes with combining traditional Wireshark filters with extraction.” This is true, but as will be seen, you will have to explore the switches included with TShark in order to really bring this power out.
@@ -115,8 +110,7 @@ One of the things not mentioned in the lessons above is that when you run the si
 
 Looking at the hint, the room’s author suggests we use “dns.flags.response == 0” display filter. This is similar to one of the commands in the lesson examples in Task 2.
 The command should look like this:
-1
-2
+
 ┌──(kali㉿kali)-[~/THM/tshark]
 └─$ tshark -r pcap -Y "dns.flags.response == 0" | wc -l   
 3. What is the DNS transaction ID of the suspicious queries (in hex)?
@@ -131,6 +125,6 @@ Unfortunately, I couldn’t find a method easier than just copying those out by 
 
 On to the grand finale. You won’t have to do any more searching because the random letters are encrypted.
 I fed this into hash-identifier and found that it is base32 encoded, so I ran:
-1
+
 echo "MZWGCZ33ORUDC427NFZV65BQOVTWQX3XNF2GQMDVG5PXI43IGRZGWIL5" | base32 -d
 That should return the flag.
