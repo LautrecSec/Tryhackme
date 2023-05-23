@@ -1,8 +1,8 @@
 Penetration Test Report Template
 Executive Summary
-Client: [CLIENT NAME]
-Assessment Date: [DATE OF ASSESSMENT]
-Assessment Lead: [PENETRATION TESTER/ASSESSOR'S NAME]
+Client: TryHackMe - Internal Networks Ltd.
+Assessment Date: 23/5/2023
+Assessment Lead: Simon Kudla
 
 This report documents the results of a penetration testing exercise commissioned by [CLIENT NAME] and conducted by our assessment team. The purpose of the penetration test was to identify and evaluate potential vulnerabilities within the targeted systems and to provide actionable recommendations to address any detected weaknesses.
 
