@@ -86,3 +86,28 @@ Verify that the attacker has not added any scheduled tasks or start-up applicati
 * Enable traffic filtering on inbound and outbound traffic to identify Indicators of Compromise (IOC) at the network level (to be carried out at the Security Operation Center level).  
 
 Several AD protection and risk assessment tools, like Ping Castle, are available for auditing and identifying AD environment loopholes. Moreover, we can also forward logs to some SIEM solutions like Wazuh and Splunk, for detailed network analysis.
+
+### Post Recovery Decisions
+
+**Policy Decisions**
+- A detailed cyber security plan must be developed in line with some international frameworks like NIST.
+- Develop a disaster management policy to avoid such attacks in the future.
+- Detailed cyber security audit of the infrastructure to locate the infection vector of the incident and determine the root cause.
+- Ensure that logs from all the servers, computers, and network devices are maintained and forwarded to a reputable SIEM solution.
+
+**Domain Controller**
+- Adding permanent rules in SIEM to block command and control (C2) domains and IP addresses used by the attacker.
+- Patching all vulnerable systems to prevent exploitation of systems through publicly available exploits.
+- Perform a thorough malware scanning of all domain controllers and domain-joined systems.
+- Perform operating system upgrades to the latest version of Windows Server as it offers more security features, like it provides AES encryption and supports red architecture more efficiently.
+- Remove the file shares on the domain controllers.
+- Disable the use of removable media on host computers, as attackers may propagate the malware on the whole network.
+
+**Backups**
+- The organisation network must have redundant domain controllers in high availability (primary/secondary layout).
+- Implement automated backup and recovery mechanisms.
+- Regularly verifying the trusted backups for validating integrity.
+
+Implementation of CIS benchmarks
+Critical systems are being exposed to the external world, and there is a dire need for advanced mechanisms to implement security policies. The Center for Internet Security (CIS) has established benchmarks to help secure computer systems, they can be downloaded depending on the operating system. These benchmarks ensure necessary configuration changes at the user and server levels. Moreover, pre-built scripts are available online for the rapid deployment of these policies. However, it is also crucial to understand the organisation's requirements before applying such hardening at the user/server level.
+
