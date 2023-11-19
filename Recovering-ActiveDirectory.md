@@ -63,3 +63,26 @@ To check the group membership changes, we can view the event logs and search for
 
 **Identifying Group Policy Changes**
 After gaining access to the system, an attacker modifies the group policies to weaken the system's overall strength and enable multiple entry points. The event ID 4719 is associated with policy modification, which means that if any valid or invalid user tries to update the system audit policy, this action will generate an event log with ID 4719. Similarly, event ID 4739 is associated with domain policy change. We can search the Event Viewer for the ID as shown below:
+
+**Domain Takeback**
+
+Due to the enormous usage of AD in organisations, hackers always seek to compromise a less secure system. In this regard, a Post-Compromise plan must be in place to ensure the availability of services and minimise downtime for AD users. The process of recovering an AD after being compromised is called Domain Takeback. 
+
+Steps for Recovery Plan
+A few essential things that might be part of this plan are as follows: 
+Reset the password for Tier 0 accounts. You can reset or disable an account by simply selecting the desired option
+
+* Look for possibly compromised (suspicious) accounts and reset their password to avoid privilege escalation.
+* Change the password for the Kerberos service account and make it unusable for the attacker.
+* Reset the passwords of accounts with administrative privileges.
+* Use the Reset-ComputerMachinePassword PowerShell command to perform reset operations for computer objects on the domain.
+* Reset the password of the domain controller machine to prevent silver ticket abuse. You can learn more about the different types of Kerberos-based attacks here. 
+
+Domain Controllers are the essential element for protection and recovery. If you have configured a writable domain controller (DC) as a backup for a compromised one, you can restore it to avoid disruption (Be careful while performing this step. Do not restore an instance of a compromised DC).
+Perform malware analysis on any targeted domain controller server for identification of malicious scripts.
+Verify that the attacker has not added any scheduled tasks or start-up applications for persistent access. You can access the task scheduler through Run > taskschd.msc.
+
+* Check event logs, Access Control Lists (ACLs), and group policies for any possible change.
+* Enable traffic filtering on inbound and outbound traffic to identify Indicators of Compromise (IOC) at the network level (to be carried out at the Security Operation Center level).  
+
+Several AD protection and risk assessment tools, like Ping Castle, are available for auditing and identifying AD environment loopholes. Moreover, we can also forward logs to some SIEM solutions like Wazuh and Splunk, for detailed network analysis.
